@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  moodle-mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: moodle-mcp-server
+    restart: unless-stopped
+    environment:
+      - MOODLE_SITE_URL=${MOODLE_SITE_URL}
+      - MOODLE_WS_TOKEN=${MOODLE_WS_TOKEN}
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+    volumes:
+      - ./config:/app/config:ro
+    stdin_open: true
+    tty: true
+    networks:
+      - mcp-network
+    labels:
+      - "com.docker.compose.service=moodle-mcp"
+      - "org.opencontainers.image.title=Moodle MCP Server"
+      - "org.opencontainers.image.description=Model Context Protocol server for Moodle Web Service API"
+
+  nginx:
+    image: nginx:alpine
+    container_name: moodle-mcp-nginx
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - moodle-mcp
+    networks:
+      - mcp-network
+    profiles:
+      - proxy
+
+networks:
+  mcp-network:
+    driver: bridge
+
+volumes:
+  config:
+    driver: local 

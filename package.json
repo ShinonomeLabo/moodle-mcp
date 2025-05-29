@@ -1,0 +1,65 @@
+{
+  "name": "moodle-mcp",
+  "version": "0.1.0",
+  "description": "Model Context Protocol (MCP) server for Moodle Web Service API",
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "moodle-mcp": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx --watch src/index.ts",
+    "start": "node dist/index.js",
+    "lint": "eslint src --ext .ts",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "test": "jest",
+    "prepare": "npm run build",
+    "docker:build": "docker build -t shinonomelaboratory/moodle-mcp .",
+    "docker:build-dev": "docker build -t shinonomelaboratory/moodle-mcp:dev .",
+    "docker:run": "docker run -it --rm -e MOODLE_SITE_URL -e MOODLE_WS_TOKEN shinonomelaboratory/moodle-mcp",
+    "docker:compose:up": "docker-compose up -d",
+    "docker:compose:down": "docker-compose down",
+    "docker:compose:logs": "docker-compose logs -f"
+  },
+  "keywords": [
+    "moodle",
+    "mcp",
+    "model-context-protocol",
+    "api",
+    "typescript",
+    "docker",
+    "analytics"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0",
+    "axios": "^1.7.2",
+    "dotenv": "^16.4.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "@types/jest": "^29.5.12",
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.3.0",
+    "ts-jest": "^29.1.5",
+    "tsx": "^4.11.0",
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/moodle-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/moodle-mcp/issues"
+  },
+  "homepage": "https://github.com/yourusername/moodle-mcp#readme"
+} 
