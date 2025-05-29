@@ -70,4 +70,5 @@ docker-compose.override.yml
 tmp/
 temp/ 
 
-DOCKER_SETUP.md 
+DOCKER_SETUP.md
+.secrets 
