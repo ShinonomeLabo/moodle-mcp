@@ -1,9 +1,7 @@
-DOCKER_SETUP.md
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-package-lock.json
 
 pids
 *.pid
@@ -71,3 +69,5 @@ docker-compose.override.yml
 
 tmp/
 temp/ 
+
+DOCKER_SETUP.md 
