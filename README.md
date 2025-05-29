@@ -1,5 +1,12 @@
 # Moodle MCP Server
 
+[![CI/CD](https://github.com/ShinonomeLabo/moodle-mcp/actions/workflows/docker.yml/badge.svg)](https://github.com/ShinonomeLabo/moodle-mcp/actions/workflows/docker.yml)
+[![CI](https://github.com/ShinonomeLabo/moodle-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/ShinonomeLabo/moodle-mcp/actions/workflows/ci.yml)
+[![Docker Hub](https://img.shields.io/docker/cloud/build/shinonomelaboratory/moodle-mcp)](https://hub.docker.com/r/shinonomelaboratory/moodle-mcp)
+[![Docker Pulls](https://img.shields.io/docker/pulls/shinonomelaboratory/moodle-mcp)](https://hub.docker.com/r/shinonomelaboratory/moodle-mcp)
+[![Docker Image Size](https://img.shields.io/docker/image-size/shinonomelaboratory/moodle-mcp/latest)](https://hub.docker.com/r/shinonomelaboratory/moodle-mcp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Model Context Protocol (MCP) server for Moodle Web Service API integration.
 
 ## 概要
