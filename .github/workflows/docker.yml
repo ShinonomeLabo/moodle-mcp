@@ -99,14 +99,15 @@ jobs:
         subject-digest: ${{ steps.push.outputs.digest }}
         push-to-registry: true
 
-    - name: Update Docker Hub description
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-      uses: peter-evans/dockerhub-description@v3
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PAT }}
-        repository: ${{ env.IMAGE_NAME }}
-        readme-filepath: ./README.md
+    # Temporarily disabled due to permission issues
+    # - name: Update Docker Hub description
+    #   if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    #   uses: peter-evans/dockerhub-description@v3
+    #   with:
+    #     username: ${{ secrets.DOCKER_USERNAME }}
+    #     password: ${{ secrets.DOCKER_PAT }}
+    #     repository: ${{ env.IMAGE_NAME }}
+    #     readme-filepath: ./README.md
 
   security-scan:
     runs-on: ubuntu-latest
